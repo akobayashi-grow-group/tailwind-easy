@@ -1,0 +1,10 @@
+---
+const { title } = Astro.props;
+
+const siteTitle = "Tailwind Training";
+const siteDescription = "Tailwind CSSの学習用サイト";
+const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+---
+
+<title>{pageTitle}</title>
+<meta name="description" content={siteDescription} />

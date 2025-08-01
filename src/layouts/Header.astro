@@ -1,0 +1,65 @@
+---
+const { type } = Astro.props;
+---
+
+<header>
+    <h1 class="py-lg flex justify-center items-center md:py-sm">
+        <a href="/">
+            <img
+                src="/assets/images/logo.svg"
+                alt="Sky Coffee"
+                class="md:max-w-[160px]"
+            />
+        </a>
+    </h1>
+    {
+        type == "home" ? (
+            <div>
+                <picture>
+                    <source
+                        srcset="/assets/images/img-mv-sp.jpg"
+                        media="(width <= 768px)"
+                    />
+                    <img
+                        src="/assets/images/img-mv.jpg"
+                        alt=""
+                        class="aspect-auto h-[590px] max-h-[70svh] sm:aspect-[375/340] sm:h-auto w-full object-cover"
+                    />
+                </picture>
+            </div>
+        ) : (
+            <div class="h-[1px] bg-primary w-full" />
+        )
+    }
+    <nav class="py-md">
+        <menu
+            class="flex justify-center flex-wrap gap-y-[2px] text-[18px] md:text-[16px]"
+        >
+            {
+                [
+                    {
+                        title: "menu",
+                        url: "#",
+                    },
+                    {
+                        title: "blog",
+                        url: "#",
+                    },
+                    {
+                        title: "access",
+                        url: "#",
+                    },
+                ].map((item) => (
+                    <li>
+                        <a
+                            class="block px-md md:px-[25px]"
+                            href={`/${item.url}`}
+                        >
+                            {item.title}
+                        </a>
+                    </li>
+                ))
+            }
+        </menu>
+    </nav>
+</header>

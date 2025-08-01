@@ -1,0 +1,25 @@
+---
+import "/src/styles/global.css";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+const { title, type } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<BaseHead title={title} />
+	</head>
+	<body class="tracking-[0.1em] md:text-[15px]">
+		<Header type={type} />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

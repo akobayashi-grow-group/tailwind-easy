@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import LinkButton from "../components/LinkButton.astro";
+---
+
+<Layout type="home">
+	<Container>
+		<section class="py-lg md:py-[45px]">
+			<div
+				class="grid grid-cols-[555fr_515fr] gap-x-md gap-y-sm items-center md:grid-cols-1"
+			>
+				<div>
+					<img
+						src="/assets/images/img-concept.jpg"
+						alt=""
+						class="aspect-[555/547] object-cover w-full"
+					/>
+				</div>
+				<div class="md:px-[20px]">
+					<hgroup class="mb-sm md:mb-[20px]">
+						<p class="mb-[20px] md:mb-[15px]">Concept</p>
+						<h2
+							class="text-primary text-[32px] font-bold md:text-[26px]"
+						>
+							心静かにコーヒーを
+						</h2>
+					</hgroup>
+					<p>
+						立ち止まって、<br />空の青さを眺めて、<br
+						/>一息つきましょう
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="py-lg md:pt-[45px]">
+			<hgroup class="text-center mb-sm">
+				<p
+					class="text-primary text-[32px] font-bold mb-[8px] tracking-[0.08em] md:text-[30px]"
+				>
+					Blog
+				</p>
+				<h2 class="text-[13px] md:text-[12px]">ブログ</h2>
+			</hgroup>
+			<div
+				class="grid gap-y-[55px] gap-x-sm grid-cols-[repeat(auto-fit,minmax(240px,1fr))] md:gap-y-sm"
+			>
+				{
+					[
+						{
+							title: "コーヒーカー始めました。",
+							date: "2030.08.08",
+							url: "#",
+						},
+						{
+							title: "濃厚クリーミーなミルクをどうぞ",
+							date: "2030.08.05",
+							url: "#",
+						},
+						{
+							title: "Sky Coffeeのオリジナル曲が完成！無料ダウンロード可能です。",
+							date: "2030.08.02",
+							url: "#",
+						},
+						{
+							title: "ハイキング用のコーヒーを販売中です。",
+							date: "2030.07.28",
+							url: "#",
+						},
+						{
+							title: "ショップの壁を塗ってみました。",
+							date: "2030.07.27",
+							url: "#",
+						},
+						{
+							title: "ブログをはじめました。",
+							date: "2030.07.26",
+							url: "#",
+						},
+					].map((post, index) => (
+						<a href={post.url} class="block">
+							<div class="mb-[12px]">
+								<img
+									src={`/assets/images/img-thumbnail${String(index + 1).padStart(2, "0")}.jpg`}
+									alt=""
+									class="w-full aspect-[350/180] object-cover"
+								/>
+							</div>
+							<p class="font-bold text-[15px] mb-[6px] tracking-[0]">
+								{post.title}
+							</p>
+							<p class="text-[12px]">{post.date}</p>
+						</a>
+					))
+				}
+			</div>
+			<div class="mt-sm text-center">
+				<LinkButton href="#">ブログ一覧 </LinkButton>
+			</div>
+		</section>
+	</Container>
+</Layout>

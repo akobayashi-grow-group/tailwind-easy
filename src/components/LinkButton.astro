@@ -1,0 +1,15 @@
+---
+const { href, target } = Astro.props;
+---
+
+<a
+    class="inline-grid min-w-[220px] leading-0 font-bold grid-cols-[8px_1fr_8px] py-[20px] px-[20px] rounded-[3px] border-primary border-[1px] text-primary items-center justify-center gap-x-[10px]"
+    href={href}
+    target={target}
+>
+    <span></span>
+    <slot />
+    <span
+        class="block w-[4px] h-[8px] [clip-path:polygon(0%_0%,100%_50%,0%_100%)] bg-primary"
+    ></span>
+</a>

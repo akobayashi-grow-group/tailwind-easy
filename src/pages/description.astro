@@ -1,0 +1,144 @@
+---
+import { Code } from "astro:components";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import LinkButton from "../components/LinkButton.astro";
+import LinkText from "../components/LinkText.astro";
+
+const globalcss = `
+@import "tailwindcss";
+
+@theme {
+    /* Font families */
+    --default-font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN","Hiragino Sans", Meiryo, sans-serif;
+
+
+    /* Color palette */
+    --color-primary: #24A8BF;
+    --color-black: #333333;
+    --color-gray: #8B8B8B;
+
+    /* spacing */
+    --spacing-lg: 50px;
+    --spacing-md: 40px;
+    --spacing-sm: 30px;
+
+    /* container */
+    --container-default: 1110px;
+
+    /* Breakpoints */
+    --breakpoint-*: initial;
+}
+
+@custom-variant xlg (@media (width <= 1440px));
+@custom-variant lg (@media (width <= 1280px));
+@custom-variant md (@media (width <= 1024px));
+@custom-variant sm (@media (width <= 768px));
+`;
+---
+
+<Layout title="Description">
+    <Container>
+        <section class="py-lg md:py-[45px]">
+            <hgroup class="mb-sm">
+                <p
+                    class="text-primary text-[32px] font-bold mb-[8px] tracking-[0.08em] md:text-[30px]"
+                >
+                    Description
+                </p>
+                <h2 class="text-[13px] md:text-[12px]">このサイトの説明</h2>
+            </hgroup>
+            <p class="mb-sm">
+                このサイトは<LinkText
+                    href="https://webdesigner-go.com/coding-practice/easy/"
+                    target="_blank">コーディング練習所の初級データ</LinkText
+                >をもとに作成しています。<br />
+            </p>
+            <p class="text-center mt-sm">
+                <LinkButton href="/">サイトを見る</LinkButton>
+            </p>
+            <section class="py-lg md:py-[45px]">
+                <hgroup class="mb-sm">
+                    <p
+                        class="text-primary text-[32px] font-bold mb-[8px] tracking-[0.08em] md:text-[30px]"
+                    >
+                        Theme Variables
+                    </p>
+                    <h2 class="text-[13px] md:text-[12px]">テーマ変数</h2>
+                </hgroup>
+                <p class="mb-sm">
+                    Tailwind CSS v4 の CSS
+                    ベースの設定ファイルを使用して、サイト全体のスタイルを定義しています。<br
+                    />
+                </p>
+                <dl>
+                    {
+                        [
+                            {
+                                name: "Font Family",
+                                value: "Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, Meiryo, sans-serif",
+                            },
+                            {
+                                name: "Color Palette",
+                                value: "Primary: #24A8BF, Black: #333333, Gray: #8B8B8B",
+                            },
+                            {
+                                name: "Spacing",
+                                value: "Large: 50px, Medium: 40px, Small: 30px",
+                            },
+                            {
+                                name: "Container Width",
+                                value: "1110px",
+                            },
+                            {
+                                name: "Breakpoints(Desktop First Approach)",
+                                value: "xlg: 1440px, lg: 1280px, md: 1024px, sm: 768px",
+                            },
+                        ].map((item) => (
+                            <div class="mb-sm">
+                                <dt class="font-bold">{item.name}:</dt>
+                                <dd>{item.value}</dd>
+                            </div>
+                        ))
+                    }
+                </dl>
+                <Code
+                    code={globalcss}
+                    lang="css"
+                    theme="dark-plus"
+                    class:list={`mb-sm`}
+                />
+                <p class="mb-sm">
+                    テーマ変数へのデザイントークンの簡単な説明は<LinkText
+                        href="https://deep-space.blue/web/3714#index_id8"
+                        target="_blank"
+                        >【作業ログ】Astro 5.8 × Tailwind CSS 4.1 を
+                        イチからはじめる</LinkText
+                    >を参照してください。<br />
+                </p>
+            </section>
+            <section class="py-lg md:py-[45px]">
+                <hgroup class="mb-sm">
+                    <p
+                        class="text-primary text-[32px] font-bold mb-[8px] tracking-[0.08em] md:text-[30px]"
+                    >
+                        Note
+                    </p>
+                    <h2 class="text-[13px] md:text-[12px]">備考</h2>
+                </hgroup>
+
+                <p class="mb-sm">
+                    今回、人間の「慣れ」に合わせるために、ブレイクポイントをデスクトップファーストアプローチに置き換えました。
+                    <br />AIにコードの大半を書かせる場合にはTailwind CSS
+                    デフォルトの設定を極力維持する方が命令は完結になる可能性があります。
+                </p>
+                <p>
+                    2025年7月現在、Tailwind
+                    CSSの4系の情報を生成AI群が正しく認識していません。<br
+                    />AIに生成させると3系の情報が出てくることがあります。
+                    そのため、ある程度人間が設定を準備・調整する必要があります。
+                </p>
+            </section>
+        </section>
+    </Container>
+</Layout>
