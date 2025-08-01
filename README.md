@@ -1,5 +1,2 @@
 https://webdesigner-go.com/coding-practice/easy/
-
-# note
-- 6/4 1h
-- 7/21 1.5h
+https://test.happy-web.site/tailwind/test01/description/
